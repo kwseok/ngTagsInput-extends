@@ -1,10 +1,8 @@
 'use strict';
 
 import 'ngTagsInput'
-import './tagsChangeTo.coffee'
-import './tagsChangeToArray.coffee'
+import './changeTo.coffee'
 
 angular.module('ngTagsInput.extends', [
-    'ngTagsInput.extends.tagsChangeTo',
-    'ngTagsInput.extends.tagsChangeToArray'
+    'ngTagsInput.extends.changeTo'
 ]);

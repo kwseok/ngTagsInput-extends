@@ -1,6 +1,6 @@
 'use strict'
 
-module.exports = angular.module 'ngTagsInput.extends.tagsChangeTo', ['ngTagsInput']
+angular.module 'ngTagsInput.extends.changeTo', ['ngTagsInput']
 
 .constant 'tagsChangeToConfig',
   seperator: '|'
@@ -20,14 +20,17 @@ module.exports = angular.module 'ngTagsInput.extends.tagsChangeTo', ['ngTagsInpu
       attrs.$observe 'tagsChangeToSeperator', (value) ->
         seperator = value or tagsChangeToConfig.seperator
 
-      scope.$watch getTo, (value) ->
-        tags = uniqueFilter(value?.split?(seperator)?.filter?((a) -> !!a)) or []
-        setModel(scope, text: tag  for tag in tags)
+      scope.$watch getTo, (value) -> if setModel?
+        tags = if seperator is 'array'
+          $.makeArray(value)
+        else
+          value?.split?(seperator)?.filter?((a) -> !!a) or []
+        setModel(scope, text: tag  for tag in uniqueFilter(tags))
 
       scope.$watchCollection ->
         tag.text  for tag in getModel(scope) or []
       , (tags) -> if tags? and setTo?
-        setTo(scope, (tag  for tag in tags or []).join(seperator))
+        setTo(scope, if seperator is 'array' then tags else tags.join(seperator))
 
       undefined
 ]
