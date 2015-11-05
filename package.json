@@ -1,7 +1,7 @@
 {
   "name": "ng-tags-input-extends",
   "prettyName": "ngTagsInputExtends",
-  "version": "0.1.3-SNAPSHOT",
+  "version": "0.1.3",
   "description": "Tags input extension directive for AngularJS",
   "main": "dist/ng-tags-input-extends.js",
   "scripts": {
