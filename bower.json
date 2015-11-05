@@ -1,0 +1,34 @@
+{
+  "name": "ng-tags-input-extends",
+  "homepage": "https://github.com/stonexx/ngTagsInput-extends",
+  "authors": [
+    "Kiwon Seok"
+  ],
+  "description": "Tags input extension directive for AngularJS",
+  "main": "dist/ng-tags-input-extends.js",
+  "keywords": [
+    "angular",
+    "tags",
+    "tags-input",
+    "tags-input-extends"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "/Gulpfile.js",
+    "/webpack.config.js",
+    "/package.json",
+    "/README.md",
+    "/test",
+    "/support",
+    "/docs",
+    "/examples",
+    "/node_modules",
+    "/bower_components"
+  ],
+  "dependencies": {
+    "jquery": "^2.1.4",
+    "angular": "^1.4.7",
+    "ng-tags-input": "~3.0.0"
+  }
+}

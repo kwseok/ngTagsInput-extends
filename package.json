@@ -1,0 +1,48 @@
+{
+  "name": "ng-tags-input-extends",
+  "prettyName": "ngTagsInputExtends",
+  "version": "0.1.1",
+  "description": "Tags input extension directive for AngularJS",
+  "main": "dist/ng-tags-input-extends.js",
+  "scripts": {
+    "build": "npm install && gulp",
+    "start": "gulp watch",
+    "test": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stonexx/ngTagsInput-extends.git"
+  },
+  "keywords": [
+    "angular",
+    "tags",
+    "tags-input",
+    "tags-input-extends"
+  ],
+  "author": "Kiwon Seok",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/stonexx/ngTagsInput-extends/issues"
+  },
+  "homepage": "https://github.com/stonexx/ngTagsInput-extends#readme",
+  "dependencies": {
+    "jquery": "^2.1.4",
+    "angular": "^1.4.7",
+    "ng-tags-input": "^3.0.0"
+  },
+  "devDependencies": {
+    "babel-core": "^5.8.25",
+    "babel-loader": "^5.3.2",
+    "babel-runtime": "^5.8.25",
+    "coffee-loader": "^0.7.2",
+    "coffee-script": "^1.10.0",
+    "del": "^2.0.2",
+    "gulp": "^3.9.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.4.2",
+    "node-libs-browser": "^0.5.3",
+    "webpack": "^1.12.2",
+    "webpack-stream": "^2.1.1"
+  }
+}
