@@ -15,11 +15,10 @@ angular.module 'ngTagsInput.extends.paste', ['ngTagsInput']
       attrs.$observe 'tagsPaste', (value) ->
         delimiter = value or tagsPasteConfig.delimiter
         delimiter = new RegExp(delimiter.toString(), 'g')  unless delimiter instanceof RegExp
-        undefined
+        return
 
       getModel = $parse(attrs.ngModel)
       setModel = getModel.assign
-
       element.on 'paste', (e) ->
         e.preventDefault()
         e.stopPropagation()
@@ -29,7 +28,6 @@ angular.module 'ngTagsInput.extends.paste', ['ngTagsInput']
           for text in splitedValue
             tags.push(text: text)  unless tags.some (a) -> a.text is text
           scope.$evalAsync -> setModel(scope, tags)
-        undefined
-
-      undefined
+        return
+      return
 ]
