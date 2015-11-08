@@ -1,4 +1,4 @@
-# Tags input extension directive for AngularJS [![Build Status](https://travis-ci.org/stonexx/ngTagsInput-extends.svg?branch=master)](https://travis-ci.org/stonexx/ngTagsInput-extends)
+# Tags input extension directives for AngularJS [![Build Status](https://travis-ci.org/stonexx/ngTagsInput-extends.svg?branch=master)](https://travis-ci.org/stonexx/ngTagsInput-extends)
 
 ## Example use
 
