@@ -17,23 +17,26 @@ angular.module 'ngTagsInput.extends.changeTo', ['ngTagsInput']
       setTo = getTo.assign
 
       seperator = tagsChangeToConfig.seperator
-      attrs.$observe 'tagsChangeToSeperator', (value) ->
-        seperator = value or tagsChangeToConfig.seperator
-        return
+      attrs.$observe 'tagsChangeToSeperator', (value) -> seperator = value or tagsChangeToConfig.seperator
+
+      keyProperty = 'text'
+      attrs.$observe 'keyProperty', (value) -> keyProperty = value or 'text'
+
+      displayProperty = 'text'
+      attrs.$observe 'displayProperty', (value) -> displayProperty = value or 'text'
+
+      makeObject = (k, v) -> o = {}; o[k] = v; o
 
       scope.$watch getTo, (value) -> if setModel?
-        setModel(scope, text: tag  for tag in uniqueFilter(
-          if seperator is 'array'
-            $.makeArray(value)
-          else
-            value?.split?(seperator)?.filter?((a) -> !!a) or []
+        setModel(scope, makeObject(keyProperty or displayProperty, tag)  for tag in uniqueFilter(
+          if seperator is 'array' then $.makeArray(value)
+          else value?.split?(seperator)?.filter?((a) -> !!a) or []
         ))
-        return
 
       scope.$watchCollection ->
-        tag.text  for tag in getModel(scope) or []
+        tag[keyProperty or displayProperty]  for tag in getModel(scope) or []
       , (tags) -> if tags? and setTo?
         setTo(scope, if seperator is 'array' then tags else tags.join(seperator))
-        return
+
       return
 ]

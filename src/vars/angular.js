@@ -3,7 +3,7 @@
 import angular from 'angular'
 
 if (!$) {
-    throw new Error("Angular.extends requires a AngularJS");
+    throw new Error("ngTagsInput.extends requires a AngularJS");
 }
 
 module.exports = angular;
