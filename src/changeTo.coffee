@@ -19,8 +19,8 @@ angular.module 'ngTagsInput.extends.changeTo', ['ngTagsInput']
       seperator = tagsChangeToConfig.seperator
       attrs.$observe 'tagsChangeToSeperator', (value) -> seperator = value or tagsChangeToConfig.seperator
 
-      keyProperty = 'text'
-      attrs.$observe 'keyProperty', (value) -> keyProperty = value or 'text'
+      keyProperty = null
+      attrs.$observe 'keyProperty', (value) -> keyProperty = value
 
       displayProperty = 'text'
       attrs.$observe 'displayProperty', (value) -> displayProperty = value or 'text'
