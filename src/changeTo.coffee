@@ -6,8 +6,8 @@ angular.module 'ngTagsInput.extends.changeTo', ['ngTagsInput']
   seperator: '|'
 
 .directive 'tagsChangeTo', [
-  'tagsChangeToConfig', '$parse', 'uniqueFilter'
-  (tagsChangeToConfig, $parse, uniqueFilter) ->
+  'tagsChangeToConfig', '$parse'
+  (tagsChangeToConfig, $parse) ->
     restrict: 'AC'
     require: 'tagsInput'
     link: (scope, element, attrs) ->
@@ -27,8 +27,14 @@ angular.module 'ngTagsInput.extends.changeTo', ['ngTagsInput']
 
       makeObject = (k, v) -> o={}; o[k]=v; o
 
+      unique = (arr) ->
+        result = []
+        for a in arr
+          result.push(a)  unless a in result
+        result
+
       scope.$watch getTo, (value) -> if setModel?
-        setModel(scope, makeObject(keyProperty or displayProperty, tag)  for tag in uniqueFilter(
+        setModel(scope, makeObject(keyProperty or displayProperty, tag)  for tag in unique(
           if seperator is 'array'
             unless value?
               value = []

@@ -75,7 +75,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	if (!$) {
+	if (!_angular2.default) {
 	    throw new Error("ngTagsInput.extends requires a AngularJS");
 	}
 	
@@ -98,15 +98,17 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(angular) {'use strict';
+	var indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
+	
 	angular.module('ngTagsInput.extends.changeTo', ['ngTagsInput']).constant('tagsChangeToConfig', {
 	  seperator: '|'
 	}).directive('tagsChangeTo', [
-	  'tagsChangeToConfig', '$parse', 'uniqueFilter', function(tagsChangeToConfig, $parse, uniqueFilter) {
+	  'tagsChangeToConfig', '$parse', function(tagsChangeToConfig, $parse) {
 	    return {
 	      restrict: 'AC',
 	      require: 'tagsInput',
 	      link: function(scope, element, attrs) {
-	        var displayProperty, getModel, getTo, keyProperty, makeObject, seperator, setModel, setTo;
+	        var displayProperty, getModel, getTo, keyProperty, makeObject, seperator, setModel, setTo, unique;
 	        getModel = $parse(attrs.ngModel);
 	        setModel = getModel.assign;
 	        getTo = $parse(attrs.tagsChangeTo);
@@ -129,12 +131,23 @@ return /******/ (function(modules) { // webpackBootstrap
 	          o[k] = v;
 	          return o;
 	        };
+	        unique = function(arr) {
+	          var a, i, len, result;
+	          result = [];
+	          for (i = 0, len = arr.length; i < len; i++) {
+	            a = arr[i];
+	            if (indexOf.call(result, a) < 0) {
+	              result.push(a);
+	            }
+	          }
+	          return result;
+	        };
 	        scope.$watch(getTo, function(value) {
 	          var tag;
 	          if (setModel != null) {
 	            return setModel(scope, (function() {
 	              var i, len, ref, ref1, results;
-	              ref1 = uniqueFilter(seperator === 'array' ? value == null ? value = [] : !angular.isArray(value) ? value = [value] : void 0 : (value != null ? typeof value.split === "function" ? (ref = value.split(seperator)) != null ? typeof ref.filter === "function" ? ref.filter(function(a) {
+	              ref1 = unique(seperator === 'array' ? value == null ? value = [] : !angular.isArray(value) ? value = [value] : void 0 : (value != null ? typeof value.split === "function" ? (ref = value.split(seperator)) != null ? typeof ref.filter === "function" ? ref.filter(function(a) {
 	                return !!a;
 	              }) : void 0 : void 0 : void 0 : void 0) || []);
 	              results = [];

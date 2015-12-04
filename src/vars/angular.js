@@ -2,7 +2,7 @@
 
 import angular from 'angular'
 
-if (!$) {
+if (!angular) {
     throw new Error("ngTagsInput.extends requires a AngularJS");
 }
 
