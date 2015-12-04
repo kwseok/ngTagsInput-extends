@@ -7,7 +7,7 @@
 		var a = typeof exports === 'object' ? factory(require("angular"), require("ng-tags-input")) : factory(root["angular"], root[false]);
 		for(var i in a) (typeof exports === 'object' ? exports : root)[i] = a[i];
 	}
-})(this, function(__WEBPACK_EXTERNAL_MODULE_3__, __WEBPACK_EXTERNAL_MODULE_4__) {
+})(this, function(__WEBPACK_EXTERNAL_MODULE_2__, __WEBPACK_EXTERNAL_MODULE_3__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -56,9 +56,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	/* WEBPACK VAR INJECTION */(function(angular) {'use strict';
 	
-	__webpack_require__(4);
+	__webpack_require__(3);
 	
-	__webpack_require__(5);
+	__webpack_require__(4);
 	
 	angular.module('ngTagsInput.extends', ['ngTagsInput.extends.changeTo']);
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
@@ -69,31 +69,23 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	'use strict';
 	
-	var _interopRequireDefault = __webpack_require__(2)['default'];
-	
-	var _angular = __webpack_require__(3);
+	var _angular = __webpack_require__(2);
 	
 	var _angular2 = _interopRequireDefault(_angular);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	if (!$) {
 	    throw new Error("ngTagsInput.extends requires a AngularJS");
 	}
 	
-	module.exports = _angular2['default'];
+	module.exports = _angular2.default;
 
 /***/ },
 /* 2 */
 /***/ function(module, exports) {
 
-	"use strict";
-	
-	exports["default"] = function (obj) {
-	  return obj && obj.__esModule ? obj : {
-	    "default": obj
-	  };
-	};
-	
-	exports.__esModule = true;
+	module.exports = __WEBPACK_EXTERNAL_MODULE_2__;
 
 /***/ },
 /* 3 */
@@ -103,12 +95,6 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 /* 4 */
-/***/ function(module, exports) {
-
-	module.exports = __WEBPACK_EXTERNAL_MODULE_4__;
-
-/***/ },
-/* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(angular) {'use strict';
