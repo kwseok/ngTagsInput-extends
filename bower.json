@@ -27,7 +27,6 @@
     "/bower_components"
   ],
   "dependencies": {
-    "jquery": "^2.1.4",
     "angular": "^1.4.7",
     "ng-tags-input": "~3.0.0"
   }

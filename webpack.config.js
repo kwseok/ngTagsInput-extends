@@ -23,12 +23,6 @@ module.exports = {
         ]
     },
     externals: {
-        jquery: {
-            root: "jQuery",
-            commonjs: 'jquery',
-            commonjs2: 'jquery',
-            amd: 'jquery'
-        },
         angular: 'angular',
         ngTagsInput: {
             root: false,
@@ -42,8 +36,6 @@ module.exports = {
         new webpack.ProvidePlugin({
             window: __dirname + '/src/vars/window',
             document: __dirname + '/src/vars/document',
-            $: __dirname + '/src/vars/jquery',
-            jQuery: __dirname + '/src/vars/jquery',
             angular: __dirname + '/src/vars/angular'
         })
     ]

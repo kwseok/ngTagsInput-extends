@@ -6,7 +6,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.js"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.js"></script>
 <script type="text/javascript" src="http://cdn.jsdelivr.net/webjars/org.webjars.npm/ng-tags-input/3.0.0/build/ng-tags-input.js"></script>
 <script type="text/javascript" src="./dist/ng-tags-input-extends.js"></script>

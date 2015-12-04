@@ -25,11 +25,15 @@ angular.module 'ngTagsInput.extends.changeTo', ['ngTagsInput']
       displayProperty = 'text'
       attrs.$observe 'displayProperty', (value) -> displayProperty = value or 'text'
 
-      makeObject = (k, v) -> o = {}; o[k] = v; o
+      makeObject = (k, v) -> o={}; o[k]=v; o
 
       scope.$watch getTo, (value) -> if setModel?
         setModel(scope, makeObject(keyProperty or displayProperty, tag)  for tag in uniqueFilter(
-          if seperator is 'array' then $.makeArray(value)
+          if seperator is 'array'
+            unless value?
+              value = []
+            else unless angular.isArray(value)
+              value = [value]
           else value?.split?(seperator)?.filter?((a) -> !!a) or []
         ))
 
