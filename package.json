@@ -26,7 +26,7 @@
   },
   "homepage": "https://github.com/stonexx/ngTagsInput-extends#readme",
   "dependencies": {
-    "angular": "^1.4.7",
+    "angular": "^1.4.8",
     "ng-tags-input": "^3.0.0"
   },
   "devDependencies": {
