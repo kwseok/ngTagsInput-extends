@@ -14,8 +14,8 @@
     <title>TEST</title>
 
     <link rel="stylesheet" href="//mbenford.github.io/ngTagsInput/css/ng-tags-input.min.css" />
-    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.js"></script>
-    <script type="text/javascript" src="//cdn.jsdelivr.net/webjars/org.webjars.npm/ng-tags-input/3.0.0/build/ng-tags-input.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.8/angular.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/webjars/org.webjars.npm/ng-tags-input/3.2.0/build/ng-tags-input.js"></script>
     <script type="text/javascript" src="//cdn.rawgit.com/stonexx/ngTagsInput-extends/master/dist/ng-tags-input-extends.js"></script>
 </head>
 <body ng-controller="MainCtrl">

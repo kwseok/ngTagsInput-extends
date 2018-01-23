@@ -1,30 +1,46 @@
+const path = require('path')
 const webpack = require('webpack');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+
+const rootDir = __dirname
+const srcDir = path.resolve(rootDir, 'src')
+const distDir = path.resolve(rootDir, 'dist')
 
 module.exports = {
-    entry: './src/index.js',
+    entry: path.resolve(srcDir, 'index.js'),
     output: {
+        path: distDir,
         filename: 'ng-tags-input-extends.js',
-        minifyFilename: 'ng-tags-input-extends.min.js',
-        sourceMapFilename: 'ng-tags-input-extends.js.map',
-        libraryTarget: 'umd'
+        libraryTarget: 'umd',
     },
     module: {
-        loaders: [
+        rules: [
             {
                 test: /.js$/,
+                loader: 'babel-loader',
                 exclude: /(node_modules|bower_components)/,
-                loader: 'babel',
-                query: {
+                options: {
                     presets: ['es2015'],
                     plugins: ['transform-runtime']
                 }
             },
             {
                 test: /\.coffee$/,
+                use: [
+                    {
+                        loader: 'coffee-loader',
+                        options: {
+                            sourceMap: true,
+                            transpile: {
+                                presets: ['es2015'],
+                                plugins: ['transform-runtime'],
+                            },
+                        },
+                    },
+                ],
                 exclude: /(node_modules|bower_components)/,
-                loader: 'coffee-loader'
-            }
-        ]
+            },
+        ],
     },
     externals: {
         angular: 'angular',
@@ -32,15 +48,18 @@ module.exports = {
             root: false,
             commonjs: 'ng-tags-input',
             commonjs2: 'ng-tags-input',
-            amd: 'ng-tags-input'
-        }
+            amd: 'ng-tags-input',
+        },
     },
     devtool: '#inline-source-map',
     plugins: [
         new webpack.ProvidePlugin({
-            window: __dirname + '/src/vars/window',
-            document: __dirname + '/src/vars/document',
-            angular: __dirname + '/src/vars/angular'
-        })
-    ]
+            window: path.resolve(srcDir, 'vars/window'),
+            document: path.resolve(srcDir, 'vars/document'),
+            angular: path.resolve(srcDir, 'vars/angular'),
+        }),
+        new UglifyJsPlugin({
+            sourceMap: true,
+        }),
+    ],
 };
