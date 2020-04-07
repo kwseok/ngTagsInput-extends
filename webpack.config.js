@@ -20,8 +20,8 @@ module.exports = {
                 loader: 'babel-loader',
                 exclude: /(node_modules|bower_components)/,
                 options: {
-                    presets: ['es2015'],
-                    plugins: ['transform-runtime']
+                    presets: ['@babel/preset-env'],
+                    plugins: ['@babel/plugin-transform-runtime']
                 }
             },
             {
@@ -32,8 +32,8 @@ module.exports = {
                         options: {
                             sourceMap: true,
                             transpile: {
-                                presets: ['es2015'],
-                                plugins: ['transform-runtime'],
+                                presets: ['@babel/preset-env'],
+                                plugins: ['@babel/plugin-transform-runtime']
                             },
                         },
                     },
@@ -54,9 +54,9 @@ module.exports = {
     devtool: '#inline-source-map',
     plugins: [
         new webpack.ProvidePlugin({
-            window: path.resolve(srcDir, 'vars/window'),
-            document: path.resolve(srcDir, 'vars/document'),
-            angular: path.resolve(srcDir, 'vars/angular'),
+            window: [path.resolve(srcDir, 'vars/window'), 'default'],
+            document: [path.resolve(srcDir, 'vars/document'), 'default'],
+            angular: [path.resolve(srcDir, 'vars/angular'), 'default'],
         }),
         new UglifyJsPlugin({
             sourceMap: true,
